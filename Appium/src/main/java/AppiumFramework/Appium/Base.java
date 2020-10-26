@@ -8,18 +8,21 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import resources.Log;
 
 public class Base {
 
 	public static AppiumDriverLocalService service;
 	public static AndroidDriver<AndroidElement> driver;
 
+	// Check the appium service and run it if it was closed
 	public static boolean checkIfServerIsRunnning(int port) {
 
 		boolean isServerRunning = false;
@@ -38,6 +41,12 @@ public class Base {
 	}
 
 	public static AndroidDriver<AndroidElement> setup() throws IOException, InterruptedException {
+		
+		//DOMConfigurator is used to configure logger from xml configuration file
+        DOMConfigurator.configure(System.getProperty("user.dir") + "\\src\\main\\java\\resources\\log4j.xml");
+ 
+        //Log in console in and log file
+        Log.info("Log4j appender configuration is successful !!");
 
 		FileInputStream fis = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\AppiumFramework\\Appium\\Global.properties");
@@ -45,6 +54,7 @@ public class Base {
 		prop.load(fis);
 		String device = prop.getProperty("Device");
 		System.out.println(device);
+		//Log.info("Welcome to Log4j");
 		String App = prop.getProperty("Application");
 		System.out.println(App);
 
@@ -68,9 +78,10 @@ public class Base {
 		return driver;
 	}
 
-	public static void startEmulator() throws IOException, InterruptedException {
+	// Start the Simulator
+	public static  void startEmulator() throws IOException, InterruptedException {
 		System.out.println(System.getProperty("user.dir") + "\\src\\main\\java\\resources\\startEmulator.bat");
-		// Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\startEmulator.bat");
+		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\startEmulator.bat");
 		Thread.sleep(6000);
 	}
 

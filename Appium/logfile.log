@@ -1,0 +1,7 @@
+2020-10-26 16:31:30,309 INFO  [Log] Welcome to Log4j 
+2020-10-26 16:31:44,635 INFO  [Log] Enter User Name Test1 
+2020-10-26 16:32:02,384 INFO  [Log] Welcome to Log4j 
+2020-10-26 16:32:16,695 INFO  [Log] Enter User Name Test2 
+2020-10-26 16:36:02,707 INFO  [Log] Log4j appender configuration is successful !! 
+2020-10-26 16:36:18,245 INFO  [Log] Enter User Name Test1 
+2020-10-26 16:36:22,414 INFO  [Log] Select a female gender 

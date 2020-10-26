@@ -1,4 +1,4 @@
-package AppiumFramework.Appium;
+package resources;
 
 import java.io.File;
 import java.io.IOException;

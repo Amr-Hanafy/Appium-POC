@@ -19,11 +19,12 @@ public class CartPage {
 	@AndroidFindBy(id = "com.androidsample.generalstore:id/productPrice")
 	private List<WebElement> productpriceList;
 
+	// Calculate the amount of the selected items in the cart
 	public double Calculate_items_amount() {
-		int cartElement = productpriceList.size();
+		var productList = productpriceList;
 		double sum = 0;
-		for (int i = 0; i < cartElement; i++) {
-			String Samount = productpriceList.get(i).getText();
+		for (WebElement productPrice: productList) {
+			String Samount = productPrice.getText();
 			double Famount = getamount(Samount);
 			sum = sum + Famount;
 		}
@@ -31,8 +32,10 @@ public class CartPage {
 
 	}
 
-	public static double getamount(String amount) {
-		amount = amount.substring(1);
+	// This Method is used to Get the amount from string text and convert it to double (ex. $120 to 120)
+	private static double getamount(String amount) {
+		int beginIndex = 1;
+		amount = amount.substring(beginIndex);
 		double Namount = Double.parseDouble(amount);
 		return Namount;
 

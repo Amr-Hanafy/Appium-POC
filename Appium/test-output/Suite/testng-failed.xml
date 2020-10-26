@@ -9,7 +9,7 @@
     <classes>
       <class name="AppiumFramework.Appium.Shopping_UseCase">
         <methods>
-          <include name="TotalAmountValidation"/>
+          <include name="TotalAmountValidation" invocation-numbers="1"/>
           <include name="killAllNodes"/>
         </methods>
       </class> <!-- AppiumFramework.Appium.Shopping_UseCase -->

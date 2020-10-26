@@ -12,6 +12,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import pageobjects.CartPage;
 import pageobjects.FormPage;
 import pageobjects.ShoppingPage;
+import resources.Utilities;
 
 public class Shopping_UseCase extends Base {
 
